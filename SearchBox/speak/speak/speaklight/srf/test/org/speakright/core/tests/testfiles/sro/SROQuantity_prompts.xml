@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompts>
+<prompt id="main1">How many {%subject%} would you like?</prompt>
+<prompt id="outOfRange">That value is out of range. {%main1Prompt%}</prompt>
+
+</prompts>

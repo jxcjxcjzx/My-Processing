@@ -1,0 +1,11 @@
+org.speakright.core
+org.speakright.core.render
+org.speakright.core.render.html
+org.speakright.core.render.mock
+org.speakright.core.render.voicexml
+org.speakright.itest
+org.speakright.servlet
+org.speakright.sro
+org.speakright.sro.gen
+org.speakright.tools.mgen
+org.speakright.tools.srogen

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+<block>
+<prompt>a box </prompt>
+<prompt count="2"><audio src="b"/><break time="100ms"/></prompt>
+</block></form>
+</vxml>

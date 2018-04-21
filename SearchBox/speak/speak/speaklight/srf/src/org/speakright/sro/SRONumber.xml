@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SRONumber" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">How many {%subject%} would you like?</prompt>
+  <prompt name="outOfRange"  def="true">That value is out of range. {%main1Prompt%}</prompt>
+  <prompt name="outOfRangeExact"  def="true">Sorry, I'm looking for a number between {%min%} and {%max%}. {%main1Prompt%}</prompt>
+  <prompt name="confirmWasRejected"  def="true">OK, let's try that again. {%main1Prompt%}</prompt>
+ </prompts>
+
+
+<grammars>
+ <grammar name="toTen" src="builtin:digits?length=2">
+  <slots>
+    <slot name="num"/>
+  </slots>
+ </grammar>
+ <grammar name="toHundred" src="builtin:digits?length=3">
+  <slots>
+    <slot name="num"/>
+  </slots>
+ </grammar>
+ <grammar name="toMillion" src="builtin:digits?length=6">
+  <slots>
+    <slot name="num"/>
+  </slots>
+ </grammar>
+</grammars>
+
+</sro>
+
+ 

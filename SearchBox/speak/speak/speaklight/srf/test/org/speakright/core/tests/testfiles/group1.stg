@@ -1,0 +1,53 @@
+group group1;
+
+able() ::= "a b l e"
+
+vardef(type,name) ::= "<type> <name>;"
+
+method(type,name,args) ::= <<
+<type> <name>(<args; separator=",">) {
+  <statements; separator="\n">
+}
+>>
+
+xxx(someone) ::= "name is $someone.person$"
+
+
+xxxarg(someone,pname) ::= "name is $someone.(pname)$"
+
+listItem() ::= "<li>$it$</li>"
+
+list2(names) ::= <<
+<ul>
+$names:listItem()$
+</ul>
+>>
+
+//------------
+prompt(cnt,txt) ::= <<
+<prompt count="$cnt$">$txt; separator=" "$</prompt>
+>>
+prompt2(item) ::= <<
+$prompt(cnt=3,txt="abc")$
+>>
+
+prompt0() ::= <<
+<prompt count="$i$">$it.txt; separator=" "$</prompt>
+>>
+promptlist(names) ::= <<
+<ul>
+$names:prompt0(); separator="\n"$
+</ul>
+>>
+
+inner(t,v) ::= <<
+$if(it.CountIsOne)$ONE $t$ $v$ $else$
+a$it.txt$b
+$endif$
+>>
+
+outer(L,v) ::= <<
+$L:inner(t="BOY",v=i)$
+line2
+>>
+

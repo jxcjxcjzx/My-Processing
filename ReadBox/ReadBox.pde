@@ -10,7 +10,7 @@ boolean ReadMode = true;
 boolean CollectMode = false;
 int index = 0;
 int currentindex = 0;
-int adjust = -500*3;
+int adjust = 90;
 String fileopenloc = "";
 String filename = "";
 boolean opened = false;
@@ -18,46 +18,26 @@ ArrayList<String> list = new ArrayList<String>();
 ArrayList<String> bookcontent = new ArrayList<String>();
 String TheOpenFileWay = "utf-8";
 int pianyi = 0;
-String processtxtpath = "F:/ceshi/test/process.txt";
+String processtxtpath = "f:/ceshi/test/process.txt";
 String configpath = "E:/HappyOne/research_center/ReadBox/config";
-String dangerpath = "E:/HappyOne/research_center/ReadBox/dangerconfig";
 String fileaddr = "";
 boolean refresh = false;
 Collectbox collect = new Collectbox();
 boolean continuedetect = true;
 Sys_timer timerhere = new  Sys_timer();
 ArrayList<String> waitlist = new ArrayList<String>();
-ArrayList<String> dangerlist = new ArrayList<String>();
 boolean waitforconfig = false;
 int currentconfigindex = 0;
-
-
-// one pic variable for special use
-PImage newyear;
-
 
 void setup()
 {
   size(900,500);
   mouseWheelSetup();
-  DangerInit();
   collect.handle_in_setup();
   Timer timer = new Timer();
   timer.schedule(new MyTask(),9,60*1000);
   smooth();
   noStroke();
-  
-   // special use in special days
-    newyear = loadImage("safety.jpg");
-    
-}
-
-void DangerInit()
-{
-    String a[]= loadStrings(dangerpath);
-    for(int k=0;k<a.length;k++){
-     dangerlist.add(a[k]);
-    }  
 }
 
 void draw()
@@ -96,19 +76,13 @@ void draw()
         rect(width-200,k*40,200,40);
       }
     }    
+    fill(0,0,0);
     for(int k=0;k<waitlist.size();k++){
       if(k<=9){
-        fill(0,0,0);
-        if(dangerlist.contains(waitlist.get(k))){
-          fill(255,0,0);
-        }
         text(waitlist.get(k),width-180,k*40+20);
       }
     }        
   }  
-  
-   // special show of images
-   image(newyear,width/2-newyear.width/2,0);
   
 }
 
@@ -177,14 +151,14 @@ void keyPressed()
         opened = true;
       }
       if(keyCode==37){
-        adjust = -500*3;
+        adjust = 90;
         if(currentindex>0){
           currentindex--;
           openfile(fileopenloc+list.get(currentindex));
         }
       }
       if(keyCode==39){
-        adjust = -500*3;
+        adjust = 90;
         if(currentindex<list.size()-1){
           currentindex++;
           openfile(fileopenloc+list.get(currentindex));
@@ -218,13 +192,11 @@ void detect()
         for(int i=0;i<configin.length;i++){
           config.add(configin[i]);
         }
-        if(loadin!=null){
-          for(int i=0;i<loadin.length;i++){
-            if(config.contains(loadin[i])){
-            }
-            else{
-              waitlist.add(loadin[i]);
-            }
+        for(int i=0;i<loadin.length;i++){
+          if(config.contains(loadin[i])){
+          }
+          else{
+            waitlist.add(loadin[i]);
           }
         }
         File delete = new File(processtxtpath);
@@ -324,15 +296,8 @@ void delFile(String path) {
  class MyTask extends java.util.TimerTask{
         public void run() {
         // TODO Auto-generated method stub
-        if(continuedetect){     
-          File cancell;     
-          do{
-            timerhere.action_performed();
-            cancell  = new File(processtxtpath);
-            fill(255,0,0);
-            text("something is wrong with process get",10,10);
-          }
-          while(!cancell.exists());
+        if(continuedetect){
+          timerhere.action_performed();
           detect();
         }
     }

@@ -1,0 +1,18 @@
+55: 
+3: Bart
+1: Homer
+3: Bart
+3: Bart
+2: Marge
+2: Marge
+6: Mister Burns
+1: Homer
+2: Marge
+2: Marge
+2: Marge
+0: 
+5: Maggie
+2: Marge
+2: Marge
+2: Marge
+5: Maggie

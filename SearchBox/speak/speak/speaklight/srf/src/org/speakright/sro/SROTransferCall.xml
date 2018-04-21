@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SROTransferCall" base="TransferFlow">
+ <prompts>
+  <prompt name="main"       def="true">This call is being transferred.</prompt>
+  <prompt name="transferFailed"       def="true">The transfer failed.</prompt>
+ </prompts>
+
+</sro>
+
+ 

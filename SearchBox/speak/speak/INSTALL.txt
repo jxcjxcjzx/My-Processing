@@ -1,0 +1,51 @@
+SpeakRight Framework
+====================
+
+Requirements
+------------
+SpeakRight was created on Eclipse 3.2.1 which uses Java 1 (jre/jdk) 1.5.0.11 and Tomcat 5.5.
+
+Installation
+------------
+
+Using the installer (Windows and Linux):
+
+Simply unzip speakright-<version>.zip to extract the installer jar archive.
+Become root on Linux machines.
+Call
+java -jar speakright-<version>-install.jar
+to install the SpeakRight framework.
+
+On Windows, a double-click on the jar should do it.
+
+
+The installation folder is referred as SpeakRight_HOME
+
+Run the Demos
+-------------
+Open org.speakright.core.tests.InteractiveTester and run it as a Java Application.  It uses the ITest utility that runs the 
+SpeakRight callflow from the console.  Audio output is simply printed as text to the console, and speech recognition is 
+simulated keyboard input.
+
+Run the Unit Tests
+------------------
+SpeakRight uses Junit 4.1 and XMLUnit 1.0.  Run the tests in org.speakright.core.tests
+
+Build a Servlet
+---------------
+A sample servlet is provided at demos/SampleServlet/src/org/speakright/demos/sampleservlet  
+
+1. Make a WAR file for it (in Eclipse do Export / and choose WAR file).
+2. Upload your servlet WAR file to a web server that hosts servlets.  Eclipse has a version of Tomcat, or you can install a stand-alone 
+   tomcat.
+3. First test you app using HTML.  Point your web browser at the url, adding "?mode=html" to get SpeakRight to serve up HTML. 
+   For example, http://localhost:8081/SampleServlet/App1?mode=html
+   You should see the first page of speech content rendered as HTML.  You can press the Submit button to go to the next page.
+   
+4. Test the app from a voicexml browser.  Point it to your servlet.  For example http://localhost:8081/SampleServlet/App1
+
+You can test for free from the Voxeo site (http://www.voxeo.com/developers/), using
+either a phone or Skype.
+
+ 
+

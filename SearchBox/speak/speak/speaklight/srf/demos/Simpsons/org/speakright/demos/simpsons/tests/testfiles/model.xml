@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- later we'll support name and base in model tag -->
+<model>
+ <value name="nextAction" type="String" />
+ <value name="currentCharacterId" type="int" />
+ <value name="characterName" type="String" />
+ <value name="haveVoted" type="boolean" />
+ <raw>public SimpsonsData m_simpsons = new SimpsonsData();</raw>	
+ <raw>public Voting m_voting; //needs to be injected at runtime </raw>	
+</model>

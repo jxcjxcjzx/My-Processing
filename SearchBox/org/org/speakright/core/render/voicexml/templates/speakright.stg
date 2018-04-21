@@ -1,0 +1,123 @@
+group speakright;
+
+//--prompts--------------------------------------------------
+prompts(promptL) ::= <<
+$promptL:prompt(tagname="prompt"); separator="\n"$
+>>
+
+silprompts(promptL) ::= <<
+$promptL:prompt(tagname="noinput"); separator="\n"$
+>>
+
+norecoprompts(promptL) ::= <<
+$promptL:prompt(tagname="nomatch"); separator="\n"$
+>>
+
+
+//--the main prompt definition--
+prompt(tagname) ::= <<
+<$tagname$$it.countNot1:xcc()$$if(!it.BargeIn)$$it.BargeIn:doBargeIn()$$endif$>$it.itemL:promptItem()$</$tagname$>
+>>
+
+//a way of outputting count attr only when count not 1
+xcc() ::= <<
+ count="$it$" 
+>>
+
+doBargeIn() ::= <<
+ bargein="$it$" 
+>>
+
+//can't get $if$ working so use each type and only one outputs something
+//MUST have a space at end of $it.tts$ line!!
+promptItem() ::= <<
+$it.tts:doTts()$$it.audio:doAudio()$$it.pause:doPause()$$it.raw:doRaw()$
+>>
+
+doTts() ::= "$it$"
+
+doRaw() ::= "$it$ "
+
+doAudio() ::= <<
+<audio src="$it$"/>
+>>
+
+doPause() ::= <<
+<break time="$it$ms"/>
+>>
+
+//--prompts--------------------------------------------------
+block(promptL) ::= <<
+<block>
+$prompts(promptL)$
+</block>
+>>
+//----grammars-----------------------------------------
+//later support text/gsl
+//moved builtin to field attr type for now!!
+//$gram:doUrl()$$gram:doBuiltIn()$
+grammar(gram) ::= <<
+$gram:doUrl()$
+>>
+
+doUrl() ::= <<
+$if(it.url)$<grammar type="application/srgs+xml" src="$gram.url$"/>$endif$
+>>
+
+//doBuiltIn() ::= <<
+//$if(it.builtIn)$<grammar type="application/srgs+xml" expr="$gram.builtIn$"/>$endif$
+//>>
+
+doFieldType() ::= <<
+type="$it$"
+>>
+
+//----field-----------------------------------------
+field(hasInput, dieCount, gram,dtmfGrammarUrl,
+          promptL,silPromptL,norecoPromptL,nextUrl,fieldType) ::= <<
+<var name="srf_res" expr="'0'"/>
+<field name="field1" $fieldType:doFieldType()$>
+$grammar(gram)$
+$grammar(dtmfGrammarUrl)$
+$silprompts(silPromptL)$
+$norecoprompts(norecoPromptL)$
+$prompts(promptL)$
+<nomatch count="$dieCount$">
+<assign name="srf_res" expr="'3'"/>
+<submit next="$nextUrl$" namelist="field1 srf_res" method="post"/>
+</nomatch>
+<noinput count="$dieCount$">
+<assign name="srf_res" expr="'3'"/>
+<submit next="$nextUrl$" namelist="field1 srf_res" method="post"/>
+</noinput>
+
+$if(hasInput)$
+<filled>
+<submit next="$nextUrl$" namelist="field1 srf_res" method="post"/>
+</filled>
+</field>
+$endif$
+>>
+ 
+//--submit --------------------------------------------------
+submitBlock(url) ::= <<
+<block>
+<submit next="$url$" namelist="" method="post"/>
+</block>
+>>
+
+//---page------------------------------------------------
+pageheader(version) ::= <<
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="$version$">
+<form>
+>>
+
+pagefooter() ::= <<
+</form>
+</vxml>
+>>
+
+finPage() ::= <<
+<disconnect/>
+<exit/>
+>>

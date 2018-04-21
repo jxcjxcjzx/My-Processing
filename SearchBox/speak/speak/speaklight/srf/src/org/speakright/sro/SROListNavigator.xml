@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SROListNavigator" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">
+   <prompt name="numberOfItemsInList"  def="true" cond="play-once" prefix="true">There are {%numItems%} {%subject%} in the list.</prompt>
+   <prompt name="numberOfItemsInListSingular"  def="true" cond="play-once" prefix="true">There is {%numItems%} {%subject%} in the list.</prompt>
+  </prompt>
+
+  <prompt name="emptyList"  def="true">There are no {%subject%} in the list.</prompt>
+  <prompt name="outOfRange"  def="true">That value is out of range. {%main1Prompt%}</prompt>
+  <prompt name="cantGoNext"  def="true">There are no more items</prompt>
+  <prompt name="cantGoPrevious"  def="true">There are no previous items</prompt>
+  <prompt name="sayCurrentItem"  def="true">{%ordinal%} item: {%currentItem%}</prompt>
+ </prompts>
+
+
+<grammars>
+ <grammar name="navigate" src="inline:next previous first last repeat">
+  <slots>
+    <slot name="num"/>
+  </slots>
+ </grammar>
+</grammars>
+
+</sro>
+
+ 

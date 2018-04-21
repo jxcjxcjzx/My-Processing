@@ -1,0 +1,17 @@
+Version 0.0.1
+=============
+
+- Support for basic VoiceXML applications.  
+  -audio file prompts, tts prompts, raw prompts, value prompts
+  -Single-slot questions only with a configurable maxAttempts
+  -validation
+  -completion side-effect (called "transaction" where business logic can go)
+  -error handlers for NoInput, PlatformError
+
+  -renderer for VoiceXML 2.0
+  -renderer for HTML (useful for testing a servlet from a browser)
+  
+  -ITest console tester
+  
+  -demo app
+  

@@ -1,0 +1,26 @@
+group group1;
+
+able() ::= "a b l e"
+
+vardef(type,name) ::= "<type> <name>;"
+
+method(type,name,args) ::= <<
+<type> <name>(<args; separator=",">) {
+  <statements; separator="\n">
+}
+>>
+
+xxx(someone) ::= "name is $someone.person$"
+
+
+xxxarg(someone,pname) ::= "name is $someone.(pname)$"
+
+listItem() ::= "<li>$it$</li>"
+
+list2(names) ::= <<
+<ul>
+$names:listItem()$
+</ul>
+>>
+
+

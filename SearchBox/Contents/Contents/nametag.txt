@@ -1,0 +1,56 @@
+import java.io.*; 
+import java.net.*; 
+import java.util.regex.*;
+
+
+public class nametag { 
+
+	/** 
+	 * @param args 
+	 */ 
+	public static void main(String[] args) { 
+		// TODO Auto-generated method stub 
+		
+		  String strUrl = null;         
+		   try { 
+			   BufferedReader store = new BufferedReader(new FileReader("names.txt "));
+			   URL url=null;
+			   String find = null;
+			   Pattern p2 = Pattern.compile("http...baike.baidu.com.view.([0-9]+?).htm");
+		    	while((strUrl=store.readLine())!=null)
+		   {
+			   
+					   
+				       url = new URL("http://www.baidu.com/s?wd="+strUrl);                              
+				       InputStreamReader isr = new InputStreamReader(url.openStream());
+		
+				       BufferedReader br = new BufferedReader(isr); 
+				       String str = null;
+				       while ((str = br.readLine() )!= null) {   
+		
+				       Matcher m = p2.matcher(str);
+					   
+				       
+				       if (m.find()) {
+							
+						   find = m.group(1);
+						   System.out.println("http://baike.baidu.com/view/"+find+".htm"); 
+						  
+				                     }
+				       else
+				       {
+				    	   continue;
+				       }
+			
+	                                                        	}
+						br.close();	
+	               }
+		   }
+					 catch (IOException e) 
+	      {            
+	        e.printStackTrace();    
+	      }    
+	  } 
+}
+
+

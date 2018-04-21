@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+<catch event="connection.disconnect">
+ <assign name="sr__res" expr="'1'"/>
+ <submit next="http://abc.com" namelist="sr__res" method="get"/>
+ <exit/>
+</catch>
+<block>
+<prompt>news</prompt>
+</block>
+<block>
+<prompt>weather</prompt>
+</block>
+<block>
+<prompt>sports </prompt>
+</block>
+<block>
+  <submit next="http://abc.com" namelist="" method="get"/>
+</block>
+</form>
+</vxml>

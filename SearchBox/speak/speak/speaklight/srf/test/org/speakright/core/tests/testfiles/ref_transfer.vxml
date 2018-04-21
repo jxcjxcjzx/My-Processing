@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+<catch event="connection.disconnect">
+ <assign name="sr__res" expr="'1'"/>
+ <submit next="http://abc.com" namelist="sr__res" method="get"/>
+ <exit/>
+</catch>
+<block>
+<prompt>this call is being transferred. </prompt>
+</block>
+<var name="sr__res" expr="'0'"/>
+<var name="sr__xferres" expr="''"/>
+<transfer name="xfer1" type="blind" dest="222" connecttimeout="20">
+<filled>
+<if cond="xfer1 == 'busy'">
+	<block>
+	<assign name="sr__res" expr="'6'"/>
+	<assign name="sr__xferres" expr="'busy'"/>
+	<submit next="http://abc.com" namelist="sr__res sr__xferres" method="get"/>
+	</block>
+<elseif cond="xfer1 == 'noanswer'"/>
+	<block>
+	<assign name="sr__res" expr="'6'"/>
+	<assign name="sr__xferres" expr="'rna'"/>
+	<submit next="http://abc.com" namelist="sr__res sr__xferres" method="get"/>
+	</block>
+<elseif cond="xfer1 == 'far_end_disconnect'"/>
+	<block>
+	<assign name="sr__res" expr="'6'"/>
+	<assign name="sr__xferres" expr="'fardisc'"/>
+	<submit next="http://abc.com" namelist="sr__res sr__xferres" method="get"/>
+	</block>
+<elseif cond="xfer1 == 'near_end_disconnect'"/>
+	<block>
+	<assign name="sr__res" expr="'6'"/>
+	<assign name="sr__xferres" expr="'neardisc'"/>
+	<submit next="http://abc.com" namelist="sr__res sr__xferres" method="get"/>
+	</block>
+</if>
+</filled>
+</transfer>
+<block>
+<assign name="sr__res" expr="'0'"/>
+<assign name="sr__xferres" expr="'ok'"/>
+<submit next="http://abc.com" namelist="sr__res sr__xferres" method="get"/>
+</block>
+</form>
+</vxml>

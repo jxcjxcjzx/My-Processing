@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SROYesNo" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">Would you like {%subject%} ?</prompt>
+ </prompts>
+
+
+<grammars>
+ <grammar name="yesno" src="inline:yes no">
+  <slots>
+    <slot name="result"/>
+  </slots>
+ </grammar>
+</grammars>
+
+</sro>
+
+ 

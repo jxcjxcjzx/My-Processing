@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+<catch event="connection.disconnect">
+ <assign name="sr__res" expr="'1'"/>
+ <submit next="http://abc.com" namelist="sr__res" method="get"/>
+ <exit/>
+</catch>
+<record name="CallersMessage" beep="true" maxtime="60s" finalsilence="2500ms" type="audio/wav">
+<prompt>
+Please record your message after the beep. You may record a message up to sixty seconds long. To end recording,
+press  any key or simply quit speaking.
+</prompt>
+</record>
+</form>
+</vxml>

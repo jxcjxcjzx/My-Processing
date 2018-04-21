@@ -1,0 +1,234 @@
+group speakright;
+
+//--prompts--------------------------------------------------
+prompts(promptL) ::= <<
+$promptL:prompt(tagname="prompt"); separator="\n"$
+>>
+
+silprompts(promptL) ::= <<
+$promptL:prompt(tagname="noinput"); separator="\n"$
+>>
+
+norecoprompts(promptL) ::= <<
+$promptL:prompt(tagname="nomatch"); separator="\n"$
+>>
+
+
+//--the main prompt definition--
+prompt(tagname) ::= <<
+<$tagname$$it.countNot1:xcc()$$if(!it.BargeIn)$$it.BargeIn:doBargeIn()$$endif$>$it.itemL:promptItem()$</$tagname$>
+>>
+
+//a way of outputting count attr only when count not 1
+xcc() ::= <<
+ count="$it$" 
+>>
+
+doBargeIn() ::= <<
+ bargein="$it$" 
+>>
+
+//can't get $if$ working so use each type and only one outputs something
+//MUST have a space at end of $it.tts$ line!!
+promptItem() ::= <<
+$it.tts:doTts()$$it.audio:doAudio()$$it.pause:doPause()$$it.raw:doRaw()$
+>>
+
+doTts() ::= "$it$ "
+
+doRaw() ::= "$it$ "
+
+doAudio() ::= <<
+<audio src="$it$"/>
+>>
+
+doPause() ::= <<
+<break time="$it$ms"/>
+>>
+
+//--prompts--------------------------------------------------
+block(promptL) ::= <<
+<block>
+$prompts(promptL)$
+</block>
+>>
+//----grammars-----------------------------------------
+grammars(gramL) ::= <<
+$gramL:grammar(); separator="\n"$
+>>
+
+//later support text/gsl
+//moved builtin to field attr type for now!!
+//$gram:doUrl()$$gram:doBuiltIn()$
+grammar(gram) ::= <<
+$gram:doUrl()$$gram:doInline()$
+>>
+
+doUrl() ::= <<
+$if(gram.GRXML)$
+$if(it.url)$<grammar type="application/srgs+xml" src="$gram.url$"/>$endif$
+$else$
+$if(gram.GSL)$
+$if(it.url)$<grammar maxage="0" type="text/gsl" src="$gram.url$"/>$endif$
+$else$
+$if(it.url)$<grammar type="application/srgs" src="$gram.url$"/>$endif$
+$endif$
+$endif$
+>>
+
+//doBuiltIn() ::= <<
+//$if(it.builtIn)$<grammar type="application/srgs+xml" expr="$gram.builtIn$"/>$endif$
+//>>
+
+doFieldType() ::= <<
+type="$it$"
+>>
+
+doInline() ::= <<
+$if(it.inline)$
+<grammar type="text/gsl">
+    <![CDATA[[
+    $it.inline:inlineWordList(); separator="\n"$
+    ]]]>
+  </grammar>
+$endif$
+>>
+
+inlineWordList() ::= <<
+   [$it$]    {  <$fld1$  "$it$"> }
+>>
+
+//----field-----------------------------------------
+field(fld1, hasInput, dieCount, gramL,
+          promptL,silPromptL,norecoPromptL,nextUrl,fieldType) ::= <<
+<var name="sr__res" expr="'0'"/>
+<field name="$fld1$" $fieldType:doFieldType()$>
+$grammars(gramL)$
+$silprompts(silPromptL)$
+$norecoprompts(norecoPromptL)$
+$prompts(promptL)$
+<nomatch count="$dieCount$">
+<assign name="sr__res" expr="'3'"/>
+<submit next="$nextUrl$" namelist="$fld1$ sr__res" method="get"/>
+</nomatch>
+<noinput count="$dieCount$">
+<assign name="sr__res" expr="'3'"/>
+<submit next="$nextUrl$" namelist="$fld1$ sr__res" method="get"/>
+</noinput>
+
+$if(hasInput)$
+<filled>
+<var name="sr__conf" expr="lastresult\$.confidence"/>
+<submit next="$nextUrl$" namelist="$fld1$ sr__res sr__conf" method="get"/>
+</filled>
+</field>
+$endif$
+>>
+ 
+//--submit --------------------------------------------------
+submitBlock(url) ::= <<
+<block>
+<submit next="$url$" namelist="" method="get"/>
+</block>
+>>
+
+//--transfer --------------------------------------------------
+//not sure if this catches all the possible events. some platforms have other errors such as 'network_busy'.
+//the final submit 'ok' should be for successful xfers, but may also be for these other errors!!
+transferTag(xfer,name,type,conntimeout,url) ::= <<
+<var name="sr__res" expr="'0'"/>
+<var name="sr__xferres" expr="''"/>
+<transfer name="$name$" type="$type$" dest="$xfer.destination$" connecttimeout="$conntimeout$">
+<filled>
+<if cond="$name$ == 'busy'">
+	$xferSubmit("busy")$
+<elseif cond="$name$ == 'noanswer'"/>
+	$xferSubmit("rna")$
+<elseif cond="$name$ == 'far_end_disconnect'"/>
+	$xferSubmit("fardisc")$
+<elseif cond="$name$ == 'near_end_disconnect'"/>
+	$xferSubmit("neardisc")$
+</if>
+</filled>
+</transfer>
+<block>
+<assign name="sr__res" expr="'0'"/>
+<assign name="sr__xferres" expr="'ok'"/>
+<submit next="$url$" namelist="sr__res sr__xferres" method="get"/>
+</block>
+>>
+
+xferSubmit(xferres) ::= <<
+<block>
+<assign name="sr__res" expr="'6'"/>
+<assign name="sr__xferres" expr="'$xferres$'"/>
+<submit next="$url$" namelist="sr__res sr__xferres" method="get"/>
+</block>
+>>
+
+
+//--goto --------------------------------------------------
+gotoBlock(url) ::= <<
+<block>
+<goto next="$url$"/>
+</block>
+>>
+
+//--record --------------------------------------------------
+//works but if hangup we lose the recording
+//      <prompt> this is what we heard: <value expr="msg"/> </prompt>
+recordBlock(beep,max,end,url) ::= <<
+  <record name="msg" beep="$beep$" maxtime="$max$" finalsilence="$end$" type="audio/wav">
+  <var name="sr__res" expr="'0'"/>
+  <prompt>
+    Please record your message after the beep amazon. 
+  </prompt>
+  <nomatch count="2">
+	 <assign name="sr__res" expr="'3'"/>
+	 <submit next="$url$" namelist="sr__res" method="get"/>
+  </nomatch>
+  <noinput count="2">
+	 <assign name="sr__res" expr="'3'"/>
+	 <submit next="$url$" namelist="sr__res" method="get"/>
+  </noinput>
+  <catch event="connection.disconnect">
+    <assign name="sr__res" expr="'1'"/>
+    <submit next="$url$" namelist="sr__res" method="get"/>
+   <exit/>
+  </catch>
+  <error>
+	 <assign name="sr__res" expr="'5'"/>
+	 <submit next="$url$" namelist="sr__res" method="get"/>
+  </error>
+  <filled>
+	 <assign name="sr__res" expr="'0'"/>
+     <submit next="$url$"
+                       namelist="sr__res msg"
+                        enctype="multipart/form-data"
+                        method="post" />
+      </filled> 
+    </record>
+>>
+
+
+//---page------------------------------------------------
+//other disc events:  telephone.disconnect.hangup error.telephone.disconnect        
+pageheader(version,url) ::= <<
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="$version$">
+<form>
+<catch event="connection.disconnect">
+ <assign name="sr__res" expr="'1'"/>
+ <submit next="$url$" namelist="sr__res" method="get"/>
+ <exit/>
+</catch>
+>>
+
+pagefooter() ::= <<
+</form>
+</vxml>
+>>
+
+finPage() ::= <<
+<disconnect/>
+<exit/>
+>>

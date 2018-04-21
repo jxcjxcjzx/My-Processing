@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompts>
+<prompt id="welcome">Welcome to the forty-one Simpson Demo where you vote for your favorite Simpsons character.</prompt>
+<prompt id="AskCharacter.main1">Say the name of a Simpsons character.</prompt>
+<prompt id="VoteYesNo.main1">Do you want to vote for {$M.CharacterName}?</prompt>
+<prompt id="RelatedCharacterYesNo.main1">Do you want to hear about Homer's wife Marge?</prompt>
+</prompts>
