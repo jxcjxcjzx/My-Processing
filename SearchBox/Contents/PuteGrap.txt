@@ -1,0 +1,108 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.*; 
+import java.net.*; 
+import java.util.regex.*;
+
+
+public class pute {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	static void writelinks(String url,int num1,int num2)
+	{
+	
+		try{
+		int i = 0;	
+		File   file=new   File("link.txt"); 
+		BufferedWriter   out=new   BufferedWriter( 
+                new   FileWriter(file,true)); 
+
+		    String content = null;
+
+		    for(i=num1*20;i<num2*20;i+=20)
+		    {		    	
+		    content =url+"_"+i+".html";
+		    out.write(content);
+		    out.newLine();
+		    }
+		 
+		   out.close(); 
+           out=null; 
+           file=null; 
+		
+		
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try{
+			writelinks("http://www.pudn.com/sourcecode/Java/download40",200,400);
+			String filename = "Java_2.txt";
+			FileWriter fw = new FileWriter(filename); 
+			URL url = null;
+			String str = null;
+			String resul = null;
+			InputStreamReader isr = null;
+			BufferedReader store = new BufferedReader(new FileReader("link.txt"));
+			BufferedWriter   out=new   BufferedWriter(fw); 
+			BufferedReader br = null;
+			String strUrl = null;
+			   Pattern p = Pattern.compile("<.+?>");
+			   Matcher m = null;
+			 while((strUrl=store.readLine())!=null)
+			    {
+				 
+				    url = new URL(strUrl);                              
+					isr = new InputStreamReader(url.openStream()); 
+					isr = new InputStreamReader(url.openStream()); 
+					br = new BufferedReader(isr);
+                    boolean state = false;
+					while ((str=br.readLine() )!= null) {
+						m = p.matcher(str);
+						if(m.find())
+						{
+						resul = m.replaceAll("");	
+						}
+						if(resul.contains("ҳ 20/ҳ")){
+						   	if(state == false) state = true;
+						   	else state = false;
+						}
+						if(state == true){
+						    out.write(resul);
+						    out.newLine();
+						    System.out.println(resul);
+						}
+					}
+					br.close();
+			    }
+			
+			 fw.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+
+}

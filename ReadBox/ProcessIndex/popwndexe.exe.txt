@@ -1,0 +1,10 @@
+popwndexe.exe,搜索这个文件,在瑞星的rsd目录之中.联想最近经常弹出的瑞星广告,令人不得不怀疑这是瑞星的广告部署系统了.当然,我这只是怀疑,是与不是,还是请瑞星出来说明一下,介绍介绍这个进程的用途.
+
+popwndexe.exe开机启动去掉程序:
+1：开始-运行-输入gpedit.msc会出现"组策略" -用户配置-管理模板-系统-看到右侧的" 不要运行指定的Windows 应用程序" 双击打开-已启用-显示-添加-输入 popwndexe.exe。部分用户没有【管理】选项的解决：方法1是先进入带命令行提示的安全模式，在命令提示符下输入“regedit”，打开注册表找到“HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer”，把“RestrictRun”的键值改为0即可。
+2：先进入带命令行提示的安全模式，输入“reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer RestrictRun /t reg_dword /d0”命令，这时会有提示是否覆盖存在的“RestrictRun”键值项，输入Y即可。右键单击“管理模板”，在弹出菜单中点击“添加删除模板”；选择system ，点 “添加”，最后把里面的模板全部添加进来就可以了。Windows系统自身的组策略内动用路径规则禁止瑞星目录内的所有RegGuide.exe和popwndexe.exe即可。
+（http://xz.duba.net/safe/174.html）
+    笔者看来这些方法都比较麻烦，经笔者测试，可采用如下方法进行彻底的清理。
+    首先，打开进程的安装目录：C :\program Files \rising ，将里面所有的文件能删除的全部删除，不要关闭。然后使用蜂巢进程管家结束RsMgrSvc.exe、popwndexe.exe这两个进程，然后立即返回安装目录C :\program Files \rising \RSD，将里面的文件全部删除，我们可以看到这时候就可以很顺利的删除了，重启试试？打开进程管理器，RsMgrSvc.exe、popwndexe.exe这两个进程已经无影无踪了。
+当然，这个过程很简单，不过有几个地方由于时间的原因笔者没有去做验证：（1）系统自带的管理器是否可以替代蜂巢进程管家来结束RsMgrSvc.exe、popwndexe.exe这两个进程，有待验证；（2）虽然我们将C :\program Files \rising \RSD里的所有文件删除了，在注册表、组策略里是否还有与之相关的服务或者reg文件存在呢？（3）笔者的操作是基于winxp系统来操作的，在win7系统里笔者的方法是否有效，还需验证。
+这里只是给大家个参考，具体的问题，还有待大家去

@@ -1,0 +1,95 @@
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import org.apache.lucene.document.*;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.surround.parser.ParseException;
+import org.apache.lucene.queryparser.surround.parser.QueryParser;
+import org.apache.lucene.queryparser.surround.query.SrndQuery;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.PhraseQuery;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.util.Version;
+import org.apache.lucene.analysis.*;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+
+public class shiyan
+{
+	
+	public static  void lucene_test() throws IOException, ParseException
+	{
+		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_CURRENT);
+		Directory directory2 = new RAMDirectory();
+		File path = new File("f:/ceshi/index/2");
+		//Directory directory2 = FSDirectory.open(path);
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_CURRENT, analyzer);
+	    IndexWriter iwriter = new IndexWriter(directory2, config);
+	    Document doc = new Document();
+	    String text = "This is the text to be indexed.";
+	    String text2 = "hello, another text here";
+	    doc.add(new Field("fieldname", text, TextField.TYPE_STORED));
+	    doc.add(new Field("fieldname", text2, TextField.TYPE_STORED));
+	    iwriter.addDocument(doc);
+	    iwriter.close();
+	    DirectoryReader ireader = DirectoryReader.open(directory2);
+	    IndexSearcher isearcher = new IndexSearcher(ireader);
+	    TermQuery tq = new TermQuery(new Term("fieldname", "text"));
+	    PhraseQuery parser = new PhraseQuery();
+	    
+	    ScoreDoc[] hits = isearcher.search(tq, 3).scoreDocs;
+	    for (int i = 0; i < hits.length; i++) {
+	        Document hitDoc = isearcher.doc(hits[i].doc);
+	        System.out.println(hitDoc.get("fieldname"));
+	      }
+
+	    ireader.close();
+	    directory2.close();
+	}
+
+	public static void main(String args[]) throws IOException, ParseException
+
+	{
+		/*
+		File path = new File("f:/ceshi/index/1");
+		Directory dir = FSDirectory.open(path);
+		File f = new File("f:/ceshi/test/2.txt");
+		Document doc = new Document();
+	    Version matchVersion = Version.LUCENE_CURRENT; // Substitute desired Lucene version for XY
+	    Analyzer me = new StandardAnalyzer(matchVersion); // or any other analyzer
+	    IndexWriterConfig conf = new IndexWriterConfig(matchVersion,me);
+	    IndexWriter writer = new IndexWriter(dir,conf);
+
+
+	    
+	    doc.add(new Field("title", "lucene introduction", Field.Store.YES, Field.Index.ANALYZED,
+	    		Field.TermVector.WITH_POSITIONS_OFFSETS));
+	    doc.add(new Field("time", "60", Field.Store.YES, Field.Index.ANALYZED,
+	    		Field.TermVector.WITH_POSITIONS_OFFSETS)); 
+	    doc.add(new Field("hello",new FileReader(f)));
+	    writer.addDocument(doc); 
+	    
+	    System.out.print(writer.getDirectory());
+	    */
+		
+		lucene_test();
+		
+	   
+	    
+	}
+	
+	
+	
+	
+	
+ 
+
+}

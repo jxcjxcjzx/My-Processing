@@ -1,0 +1,261 @@
+Helpers 
+
+/**
+ 
+* Pascal is a case-insensitive language. So, we¡¯ll use helpers
+ 
+* to simplify our regular expressions. E.g. Instead of writing,
+ 
+* for instance, end = (¡®e¡¯ | ¡®E¡¯) (¡®n¡¯ | ¡®N¡¯) (¡®d¡¯ | ¡®D¡¯), we
+ 
+* may write: end = e n d, which takes less space is makes the
+ 
+* regular expression more readable.
+ 
+*/
+ 
+a = ¡®a¡¯ | ¡®A¡¯ ; // this could also be written as ['a' + 'A']
+ 
+b = ¡®b¡¯ | ¡®B¡¯ ; // but I prefer the old lex style
+ 
+d = ¡®d¡¯ | ¡®D¡¯ ;
+ 
+e = ¡®e¡¯ | ¡®E¡¯ ;
+ 
+g = ¡®g¡¯ | ¡®g¡¯ ;
+ 
+i = ¡®i¡¯ | ¡®I¡¯ ;
+ 
+l = ¡®l¡¯ | ¡®L¡¯ ;
+ 
+m = ¡®m¡¯ | ¡®M¡¯ ;
+ 
+n = ¡®n¡¯ | ¡®N¡¯ ;
+ 
+o = ¡®o¡¯ | ¡®O¡¯ ;
+ 
+p = ¡®p¡¯ | ¡®P¡¯ ;
+ 
+r = ¡®r¡¯ | ¡®R¡¯ ;
+ 
+t = ¡®t¡¯ | ¡®T¡¯ ;
+ 
+v = ¡®v¡¯ | ¡®V¡¯ ;
+ 
+w = ¡®w¡¯ | ¡®W¡¯ ;
+ 
+ 
+ 
+l_curly_bracket = ¡®{¡® ;
+ 
+r_curly_bracket = ¡®}¡¯ ;
+ 
+ascii_char = [32 .. 127] ;
+ 
+ 
+ 
+// letters and digits
+ 
+letter = [['a' .. 'z'] + ['A' .. 'Z']];
+ 
+digit = ['0' .. '9'] ;
+ 
+ 
+ 
+// un-printable characters
+ 
+tab = 9 ;
+ 
+cr = 13 ;
+ 
+lf = 10 ;
+ 
+blank = ¡® ¡® ;
+
+Tokens 
+
+// reserved words
+ 
+end = e n d ;
+ 
+div = d i v ; // integer division
+ 
+var = v a r ;
+ 
+begin = b e g i n ;
+ 
+program = p r o g r a m ;
+ 
+writeln = w r i t e l n ;
+ 
+// I prefer to let the parser do the job
+ 
+// of tracking the standard type rather
+ 
+// then processing it in the semantic phase
+ 
+integer = i n t e g e r ;
+ 
+ 
+ 
+// arithmetic symbols
+ 
+plus = ¡®+¡¯ ;
+ 
+minus = ¡®-¡¯ ;
+ 
+mult = ¡®*¡¯ ;
+ 
+assignop = ¡®:=¡¯ ;
+ 
+ 
+ 
+// symbols separators
+ 
+comma = ¡®,¡¯ ;
+ 
+colon = ¡®:¡¯ ;
+ 
+semicolon = ¡®;¡¯ ;
+ 
+dot = ¡®.¡¯ ;
+ 
+l_paren = ¡®(¡® ;
+ 
+r_paren = ¡®)¡¯ ;
+ 
+ 
+ 
+// identifiers
+ 
+identifier = letter (letter | digit)* ;
+ 
+ 
+ 
+// numbers
+ 
+number = digit+ ; // integer numbers only
+ 
+ 
+ 
+// comments
+ 
+comment = l_curly_bracket [ascii_char - [l_curly_bracket + r_curly_bracket]]*
+ 
+r_curly_bracket ;
+ 
+ 
+ 
+// blanks
+ 
+blanks = blank | cr lf | cr | lf | tab ;
+
+Ignored Tokens 
+
+comment,
+ 
+blanks ;
+
+Productions 
+
+program =
+ 
+program_heading
+ 
+declarations
+ 
+body
+ 
+dot ;
+ 
+program_heading =
+ 
+// program must be prefixed with T. because there is a token and a production with
+ 
+// the same name
+ 
+T.program identifier semicolon ;
+ 
+// declarations
+ 
+declarations =
+ 
+variables_declaration? ;
+ 
+variables_declaration =
+ 
+var variables_definition_list ;
+ 
+variables_definition_list =
+ 
+{single} variables_definition |
+ 
+{multiple} variables_definition_list variables_definition ;
+ 
+variables_definition =
+ 
+identifier_list colon type semicolon ;
+ 
+identifier_list =
+ 
+{single} identifier |
+ 
+{multiple} identifier_list comma identifier ;
+ 
+type =
+ 
+integer ; // only data type allowed is the integer data type
+ 
+// body definition
+ 
+body =
+ 
+begin
+ 
+statement_sequence
+ 
+end ;
+ 
+// statements
+ 
+statement_sequence =
+ 
+{single} statement |
+ 
+{multiple} statement_sequence semicolon statement ;
+ 
+statement =
+ 
+{writeln} writeln l_paren expression r_paren |
+ 
+{assignment} identifier assignop expression |
+ 
+{empty} ;
+ 
+// expressions
+ 
+expression =
+ 
+{term} term |
+ 
+{plus} expression plus term |
+ 
+{minus} expression minus term ;
+ 
+term =
+ 
+{factor} factor |
+ 
+{mult} term mult factor |
+ 
+{div} term div factor ;
+ 
+factor =
+ 
+{identifier} identifier |
+ 
+{number} number |
+ 
+{expression} l_paren expression r_paren;
+ 
+// end of grammar.

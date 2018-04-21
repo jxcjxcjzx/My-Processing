@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SROConfirmYesNo" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">Do you want {$INPUT} {%subject%}?"</prompt>
+ </prompts>
+
+
+<grammars>
+ <grammar name="confirm" src="inline:yes no">
+  <slots>
+    <slot name="confirm"/>
+  </slots>
+ </grammar>
+</grammars>
+
+</sro>
+ 

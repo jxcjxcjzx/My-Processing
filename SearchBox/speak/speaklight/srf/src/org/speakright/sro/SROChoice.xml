@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SROChoice" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">What {%subject%} would you like?</prompt>
+  <prompt name="sampleValues"  def="true">You can say a {%subject%} such as {%sampleValue1%} or {%sampleValue2%}</prompt>
+  <prompt name="silence1"       def="false">I'm sorry I didn't hear anything. {%sampleValuesPrompt%} {%main1Prompt%}</prompt>
+  <prompt name="confirmWasRejected"  def="true">OK, let's try that again. {%main1Prompt%}</prompt>
+ </prompts>
+
+<!-- no grammars. app code provides them  -->
+
+</sro>
+
+ 

@@ -1,0 +1,155 @@
+group html;
+
+//--prompts--------------------------------------------------
+prompts(promptL) ::= <<
+$promptL:prompt(tagname="prompt"); separator="\n"$
+>>
+
+silprompts(promptL) ::= <<
+$promptL:prompt(tagname="noinput"); separator="\n"$
+>>
+
+norecoprompts(promptL) ::= <<
+$promptL:prompt(tagname="nomatch"); separator="\n"$
+>>
+
+
+//--the main prompt definition--
+prompt(tagname) ::= <<
+<li><b>$tagname$: $it.countNot1:xcc()$ </b>
+$if(!it.BargeIn)$<b>bargeIn: </b> $it.BargeIn:doBargeIn()$<p>$endif$
+<UL>
+$it.itemL:promptItem()$
+</UL>
+>>
+
+//a way of outputting count attr only when count not 1
+xcc() ::= <<
+(count = "$it$" )
+>>
+
+doBargeIn() ::= <<
+ bargein="$it$" 
+>>
+
+//can't get $if$ working so use each type and only one outputs something
+//MUST have a space at end of $it.tts$ line!!
+promptItem() ::= <<
+<li>$it.tts:doTts()$$it.audio:doAudio()$$it.pause:doPause()$$it.raw:doRaw()$
+>>
+
+doTts() ::= "<b>TTS: </b>$it$"
+
+doRaw() ::= "<b>raw: </b>$it$"
+
+doAudio() ::= <<
+<b>audio:  </b> <a href="$it$">$it$</a>
+
+>>
+
+doPause() ::= <<
+<b>break </b> $it$ms
+>>
+
+//--prompts--------------------------------------------------
+block(promptL) ::= <<
+<h3>Prompt</h3>
+<ul>
+$prompts(promptL)$
+</ul>
+<p>
+>>
+//----grammars-----------------------------------------
+//later support text/gsl
+grammar(gram) ::= <<
+$gram:doUrl()$$gram:doBuiltIn()$$gram:doInline()$
+>>
+
+doUrl() ::= <<
+$if(it.url)$
+<b>Grammar-url: </b> <a href="$it.url$">$it.url$</a><p>
+$endif$
+>>
+
+doBuiltIn() ::= <<
+$if(it.builtIn)$
+<b>Grammar (Built-In): </b> $it.builtIn$<p>
+$endif$
+>>
+
+doInline() ::= <<
+$if(it.inline)$
+<b>Grammar-url: </b> Inline GSL grammar
+    $it.inline:inlineWordList(); separator=","$
+$endif$
+>>
+
+inlineWordList() ::= <<
+$it$
+>>
+
+
+//----field-----------------------------------------
+field(fld1, hasInput, gram,dtmfGrammarUrl,
+          promptL,silPromptL,norecoPromptL,nextUrl) ::= <<
+<h2>Field '$fld1$'</h2>
+$grammar(gram)$
+$grammar(dtmfGrammarUrl)$
+<h3>Prompts</h3>
+<UL>
+$silprompts(silPromptL)$
+$norecoprompts(norecoPromptL)$
+$prompts(promptL)$
+</UL>
+
+$if(hasInput)$
+<b>Next-url: </b> <a href="$nextUrl$">$nextUrl$</a><p>
+<hr>
+<form action="$nextUrl$?mode=html" method="POST">
+Input (for slot $fld1$): <input type="text" name="$fld1$" size="20"><br>
+No-Input Error: <input type="checkbox" name="sr__res" value="3"><br>
+Confidence: <input type="text" name="sr__conf" value="100"><br>
+<input type="submit" value="Submit">
+</form>
+$else$		
+<hr>
+<form action="$nextUrl$?mode=html" method="POST">
+<input type="submit" value="Submit">
+</form>		
+$endif$
+>>
+ 
+//--submit --------------------------------------------------
+//HTML 4.0 requires a URL in action tag
+submitBlock(url) ::= <<
+<b>Next-url: </b> $url$
+<hr>
+<form action="$url$?mode=html" method="POST">
+<input type="submit" value="Next">
+</form>		
+>>
+
+//---page------------------------------------------------
+pageheader() ::= <<
+<html>
+<head>
+<title>SRF QuestionFlow</title>
+</head>
+<body>
+>>
+
+//output a form so user can simulate the response from a speech platform
+pageFooter() ::= <<
+</body>
+</html>
+>>
+
+finPage() ::= <<
+<h1>FIN</h1>
+>>
+
+finPageFooter() ::= <<
+<hr>
+</body>
+</html>
+>>

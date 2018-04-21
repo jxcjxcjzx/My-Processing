@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+<catch event="connection.disconnect">
+ <assign name="sr__res" expr="'1'"/>
+ <submit next="http://abc.com" namelist="sr__res" method="get"/>
+ <exit/>
+</catch>
+<var name="sr__res" expr="'0'"/>
+<field name="field1">
+<grammar type="application/srgs+xml" src="gram1.grxml"/>
+<noinput >I'm sorry I didn't hear anything. What item would you like? </noinput>
+<noinput count="2">I still didn't hear anything.  Please say an item. </noinput>
+<nomatch >I didn't get that. What item would you like? </nomatch>
+<nomatch count="2">I still didn't understand.  Please say an item you would like? </nomatch>
+<prompt >abcd defg </prompt>
+<nomatch count="3">
+<assign name="sr__res" expr="'3'"/>
+<submit next="http://abc.com" namelist="field1 sr__res" method="get"/>
+</nomatch>
+<noinput count="3">
+<assign name="sr__res" expr="'3'"/>
+<submit next="http://abc.com" namelist="field1 sr__res" method="get"/>
+</noinput>
+
+<filled>
+<var name="sr__conf" expr="lastresult$.confidence"/>
+<submit next="http://abc.com" namelist="field1 sr__res sr__conf" method="get"/>
+</filled>
+</field>
+</form>
+</vxml>

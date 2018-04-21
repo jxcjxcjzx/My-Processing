@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sro name="SRODigitString" base="BaseSROQuestion">
+ <prompts>
+  <prompt name="main1"       def="false">Please enter a {%numDigits%} digit {%subject%}</prompt>
+  <prompt name="outOfRange"  def="true">That value is out of range. {%main1Prompt%}</prompt>
+  <prompt name="confirmWasRejected"  def="true">OK, let's try that again. {%main1Prompt%}</prompt>
+ </prompts>
+
+
+<grammars>
+ <grammar name="digits1" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_1_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits2" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_2_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits3" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_3_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits4" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_4_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits5" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_5_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits6" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_6_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits7" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_7_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits8" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_8_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits9" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_9_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits10" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_10_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits11" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_11_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits12" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_12_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits13" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_13_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits14" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_14_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits15" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_15_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+ <grammar name="digits16" src="$sro$/grammars/voxeo/numbers2sixteen.grammar#VOXLIB_16_DIGIT_STRING">
+  <slots>
+    <slot name="choice"/>
+  </slots>
+ </grammar>
+</grammars>
+
+</sro>
+
+ 

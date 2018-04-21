@@ -1,0 +1,289 @@
+实时操作系统的基本概念和特点
+常见的嵌入式微处理器，嵌入式操作系统
+
+
+
+
+Now I am empty, try fill me with fun..
+·无尘车间专家卓为 评说乱流洁净室的作用原理
+示例游戏模仿了App Store上流行的游戏，它们与现实有关、容易理解，而且能很快激发你的兴趣并引发灵感。游戏在复杂性方面有所增强，重点关注cocos2d新手通常会遇到的问题，弥补了cocos2d文档的不足。阅读完本书，你将学习到一些看似零散的知识模块，还将学习到如何将它们关联起来。当由一个初学者转而做进一步的开发时，你将获得游戏开发的技巧、优化项目性能的建议，以及多种实现方法和进一步的阅读指南。&nbsp;&nbsp;在 线 阅 读 &nbsp;&nbsp;CXF WebService 技术指南.docx【Apache CXF】 4、	CXF的特性
+&nbsp;4小时前→详细信息 &nbsp;&nbsp;为什么程序员的价值总是被严重的低估&nbsp;【软件编程】 在我任职于雅虎期间(大约 2001-2007)，我学会了做很多事情，但同等重要的，我还学会了如何避免做某些事情。对于后者，主要就是如何避免不公的对待技术人员。雅虎，尽管做 出了很多善意的努力和明显的例外举措，仍然没有在公司内带来技术人员地位的提高。尽管我们这些技术人员创造了大量的价值，可管理层永远都是非技术人员。不 可避免的，大量优秀的人才注意到了这些，忍无可忍，愤而离开。
+&nbsp;10小时前→详细信息 &nbsp;&nbsp;2013年美国最佳工作Top 10：软件工程师居首&nbsp;【软件编程】美国 EMSI 公司有着丰富的劳动力数据库，该数据库覆盖了美国 90 多个国家级和地方记就业资源，也包括雇员和自由职业者的详细信息。在此基础上，CareerBuilder 和 EMSI 公司最近联合调查，得出了 2013 年一些不错的工作（需要学士学位）。下面是调查结果中的 Top 10。 &nbsp;10小时前→详细信息 &nbsp;&nbsp;WordPress 最热门的插件（信息图表）&nbsp;【开源软件】WordPress是一个开源的内容管理系统，作为一种有效的发布工具。它配备了一些默认的设置和功能，它允许用户方便地创建和维护一个博客或网站。 WordPress采用PHP开发+后端的MySQL数据库实现。 
+&nbsp;23小时前→详细信息 &nbsp;&nbsp;JavaEE 7 项目的最新进展&nbsp;【软件编程】JavaEE 7 将于今年第 2 季度发布，JCP 也加快了对各种语言特性及规范的审查进度。目前，JSR 349（Bean Validation 1.1）和 JSR 339（JAX-RS 2.0）已经通过审查，确定会出现在 JavaEE 7 中。此外，还有 7 个规范仍在审查中。我们来看看最新的进度。 
+&nbsp;1天前→详细信息 &nbsp;&nbsp;Java命令行解析器，JOpt Simple 4.4 发布&nbsp;【开源软件】JOpt Simple是一个简单，测试驱动的Java命令行解析器。它支持POSIX getopt() 和 GNU getopt_long()。
+一个盲人律师的双重黑暗
+Global Times与《环球时报》的阴阳脸
+《朱镕基讲话实录》到底在骂谁
+本期目录： 译言精选 ? ? ?上一代领导人的临别馈赠 岭牛 ? ? ? ? ?这是一个国家的答案 李铁 ? ? ? ? ?重拾传统的人文精神价值 南都周刊 ? ? ?任建宇：我一直觉得自己没有错 柏拉图的坟墓 ?你是忍够了,还是怕了? 南方周末 ? ? ?年轻人，到“体制内”去 刘原 ? ? ? ? ?两手空空的年代，我们只剩胯下的两百万 郭巍青 ? ? ? “我怕”的时代已经来临 南桥 ? ? ? ? ?这个世界是异类的 惠特曼…… ? ?诗两首 陈季冰 ? ? ? ?“收入倍增”目标背后的真问题 译言精选 ? ? [...]
+			                   2012年，社交媒体在谈论哪些科学论文？
+		广州市民菜场买回黄瓜 咬一口放几天后长出一截
+		“将交通违法与个人信用挂钩”的新闻传之网络，再次刺痛开车人的神经。
+		“卡”不住的购物卡
+			全球低利率时代将一去不返？ 
+Now I am empty, try fill me with fun..
+			阿里巴巴的大数据梦
+	  			03.0 一份影响每个中国人钱包的方案 收入...
+	  			08.0给我一瓢北京水，清清白白的北京水
+	 				  			01.0高三学生：我被中国教育逼疯了
+	  			04.0非常招聘季 校园里的中国经济信号
+	  			08.0大学团干之死
+					我们盘点这一年来为拥有一个更美好中国而付出过的人，他们通过自己的坚守和努力，...
+A look at U.S. gun laws from 1791
+                    往往只有优秀的人才拥有有效的人脉【转】sunyzz 
+                    记录我在大专实验室的点点滴滴三部曲(1)lichenjiee 
+应用创新需要土壤 中国式创新路在何方？刀马物语
+linux 2.6中断注册相关变动ren364940161
+                    同事离职后的感慨qwqwqw2088 
+            【卓跃教育】嵌入式人才未来的发展方向rwogn
+                 		半导体市场格局已成三足鼎立之势，FPGA，ASIC和ASSP三分天下。市场统计数据表明，FPGA已经逐步侵蚀ASIC和ASSP的传统市场，并处于快速增长阶段。现阶段FPGA的应用不断扩展...>>详细
+我们为什么没有成为富人，是因为我们一直以穷人的心态在生活，希望我们有了钱就会转变思路，结果一直等到我们...>>详细
+Now I am empty, try fill me with fun..
+              中国应防美欧印钞“剪羊毛”
+              处罚闯黄灯是法治缺陷集大成
+            与龙共舞·晒的不是年终奖是收入分配不公
+            池墨·司机胆小是对法律的敬畏
+电信运营商已经不可避免的走下坡... 
+2013年电信运营商分层次的流量经... 
+标普：中国银行业正面临信用下行周期
+当新闻审查滞后于新闻出版发展本身的时候，审查制度如何改革？普希金的专属新闻审查官——皇上尼古拉一世就遇到了这个问题，他很头疼 
+ 新浪微博何处找收入？
+崔志成：三星的未来是什么？ 
+三星推Galaxy相机 或威胁日本数码巨头
+Japan's 'Infidelity Phones'As many people rushed to trade in old phones for smartphones, Japan's philanderers have remained faithful to older DoCoMo phones because of privacy features. 
+					中国养老金发展报告2012发布式
+          华生：中国股市IPO的三大改革方向
+            ·张晓昭：主力提供四个投资机会
+Now I am empty, try fill me with fun..
+							    							    恐怖山脉：科学家计划钻穿南极冰层，进入哥特恐怖世界
+							    							    在野外最丢脸的5种死法
+							    							    情欲世纪：为何启蒙时期的艺术肉欲横流?
+							    							    阴影下的桑迪霍克，一个强大的拥枪组织保持沉默/时代周刊
+							    							    《蒋介石???》南京十年（10）乌云隙光
+Let's face it: racing is expensive. Many people can't afford to purchase a car, make it race-ready, and then proceed to crash it every weekend. Indoor go-karting, therefore, may be the most cost effective way to express your inner Jeff Gordon.
+We’ve been hearing about “wearable computing” for years. But we’re finally at a tipping point. It sounds crazy, but the cyborgification of humanity is proceeding apace.
+                     	建筑类PhD申请总结
+            留学？还是挣钱？莫让打工成留学主旋律
+		    近日，中新网援引日本新华侨报网的报道，称日本山口福祉文化大学开除了127名中国留学生，原因之一为：部分目的不正的留学生拿到签证后不去上课，跑到大城市去打..
+        力哥：疯狂砸盘背后的精心布局
+">几年来股市研判成绩总结
+小黎飞刀20●飞刀周评1/11：迎接行情的第一波调整！●
+            林毅夫：如何才能做到“收入翻番”
+                        皮海洲·别急着喊“蓝筹价值论”胜利了
+Now I am empty, try fill me with fun..
+“移轴摄影”能把现实世界扭转为模型般的“小人国”。那些真实世界里的建筑、人物，在照片里全都变成微缩模型。行走着的路人犹如僵硬的造型人偶，高楼大厦就像一块块积木，停在路边的汽车也变成了玩具。“移轴”后的世界看起来似乎不如现实般复杂，少了一份浮躁，多了一份时间静止般的沉寂。
+[主流PaaS 谁是最通用的编程语言？] [你选对了吗？三大PaaS供应商之优劣比较]
+">[CloudCamp创始人：PaaS的潜能与迷惑] [微软 Google IBM SalesForce与PaaS]
+                PaaS玩家们，怎么演好自己的角色？
+		  		   		   一周消息树：CES2013揭幕 科技巨头纷纷发力
+								   			Nir Goldshlager：看我如何Hack Facebook
+		   		   					   			对话Linus Torvalds：大多黑客连指针都未理解
+								   			让网站成为应用：Firefox OS掀起革命风潮
+        马来西亚艺术家康怡用篮球画姚明，这次，她又带来了新的创作方法：用蜡烛作画。                                                                         17分钟前
+        #家具设计#耶路撒冷设计师Adi Kalina设计的这款户外办公椅意在鼓励人们走出家门，去关心城市的每一个角落，带上自己的笔记本电脑，一杯咖啡，感受城市的每一寸土地。#设计癖#http://url.cn/BrTFJp                                                                         6分钟前
+末日来临，App将何去何从 
+										微软安全新闻聚焦-双周刊第二十六期
+							    							    在女人20出头时，你绝对不要跟她说的10件事
+							    							    语言教学公司：在线语言专家 （摘自《经济学人》）
+							    							    数字社会的开放程度度：虚拟礼品商店（Facebook gifts）如何改变我们的选择
+Now I am empty, try fill me with fun..
+房地产调控面临“中国式黄灯”蔡阳
+2013风水新秘密—数字中的大奥秘<a href="
+Now I am empty, try fill me with fun..
+            在电子计算机前25年的发展中，生产技术的进步一直都相当稳定，而计算机体系结构的改...
+            书中涵盖了Dart语言基础、并发编程、Web编程和HTML5应用等方方面面的内容...
+                java程序员菜鸟进阶（五）oracle基础详解（五）oracle数据库体系架构详解
+                深入JVM系列（二）之GC机制、收集器与GC调优
+             假如我来架构12306网站（二） - 浅谈系统需求调研
+在冰面上飞翔——送遇难诗人揣摩(图)东篱
+								悲剧!大学生卖肾买彩血本无归 太囧！双色球1区域显悲情
+民政部回应兰考大火:暴露孤儿救助体系存漏洞 专题
+十大机器动物:遥控蟑螂(图) 近距离拍野生动物特写(图)
+美国交警自述：工作22年开4万罚单杨孝文
+从全球的角度看中国彩电刘步尘
+李德美：葡萄酒的年份有什么意义？李德美
+如果你不打算生一堆孩子那就没必要30岁前史迪仔
+中国大学排行榜600强：清华卫冕造富榜冠军校友会网
+北漂族离开北京2年后犹如获得新生布川
+Now I am empty, try fill me with fun..
+&nbsp;1天前→详细信息 &nbsp;&nbsp;Facebook：孩子你长大了，就成了腾讯&nbsp;【IT业界】   即使有扎克伯克的公开道歉，Facebook 抄袭 Snapchat 的事件仍在发酵。以 Facebook 今日在江湖中的地位，干出如此不光彩之事，实在是可悲可叹??美金美金，引无数英雄竞折腰。想到抄遍天下无敌手的腾讯，小小年纪的扎克伯克倒与这句话很应 景：孩子你长大了，就成了腾讯。
+		比特沙龙:电商网站未来
+										2012年目标攻击和APT高级持续性攻击
+										什么样的平台适合开放
+										中美网民互联网应用差异之网络视频
+												手机的组装时代是否会到来?
+		? [热点]男子为救700万现金进火场 死后仍抱几大捆钱
+        【东莞理工命案】
+             承认一个错误值多少钱？试算新交规让北...    
+  中科院“2049中国超美”做大梦赚眼球？
+   执法者寒冬不送暖夺人衣？ 新驾考106人仅4人过太严了 
+   2013中国大学排行榜：北大清华复旦位列三甲
+			任志强：今年房价将稳中有升
+历史上因小数点引发的悲剧吚亾
+我们活在一个探索者的盛世华夏地理
+Now I am empty, try fill me with fun..
+						【2013年中国人可能最关心的八个问题】男足亚洲杯预选赛能够出线吗
+						【2013年中国人可能最关心的八个问题】股市能突破3000点吗 
+						【《环球科学》】2012年十大科学新闻评选
+							2012年全国因灾死亡（含失踪）人口示意图。						
+					           平台化思考：4种方式，让互联网为你的公司所用
+			ivspiderII 即将发布！
+A First Public Working Draft of WebCrypto Key Discovery. This specification describes a JavaScript API for discovering named, origin-specific pre-provisioned cryptographic keys for use with the Web Cryptography API. Pre-provisioned keys are keys which have been made available to the UA by means other than the generation, derivation, imporation functions of the Web Cryptography API. Origin-specific keys are keys that are available only to a specified origin. Named keys are identified by a name assumed to be known to the origin in question and provisioned with the key itself.
+A Working Draft of Web Cryptography API. This specification describes a JavaScript API for performing basic cryptographic operations in web applications, such as hashing, signature generation and verification, and encryption and decryption. Additionally, it describes an API for applications to generate and/or manage the keying material necessary to perform these operations. Uses for this API range from user or service authentication, document or code signing, and the confidentiality and integrity of communications.
+							What We Know about the Apple iPad 3 (So Far)
+								 If you work with a CMS platform, you probably already know how powerful Flash tools can be. As Flash continues to grows, more and more developers are entering the field offering fantastic tools that can make your life a lot easier. These tools will not only save you a lot of time, but they will save you a lot of headaches. With that being said, if you&#8217;re looking to implement flash with your online CMS, here are five tools to consider:
+								 Many business owners are turning to the web to help them market their business and there are plenty of good reasons for doing this. Many expert online marketers claim online marketing is less expensive than other types of marketing but also more effective. According to several online studies, people will search for a product or service online before they decide to buy it. What does the average consumer look for when searching for these products or services? 
+								 If your are a fresh man for the Adobe PhotoShop, the following series simple tutorials will help you entry the PS world easily. In this tutorial, we will introduce the type tool —which allows you to pick a font, size and make other changes to your text, you can easily add text to an image or a blank document with PhotoShop Type Tool. Now let’s start.
+本期新10条关键词：刑诉法草案是人间蒸发法、两会的明星毛新宇和申纪兰、CPI上涨3.2%、微博实名制、公车采购目录、Youku+Tudou=YouTube、中国被列“互联网之敌”国家。瘦米中文网：做一个有态度的青年！
+&nbsp;17小时前→详细信息 &nbsp;&nbsp;面向对象不是计算机编程的基本原子&nbsp;【软件编程】在过去的 25 年里，编程世界发生了巨大的变化，如今，我们有大量的有用的、灵活的数据类型可以使用，但在 25 年前，你需要花大量的额外时间自己去构造这些类型。
+Now I am empty, try fill me with fun..
+ 机构一致预期：今年中国经济增长8%01-09 20:27
+“抑郁症”成为官员自杀原因中的高频词汇；一些官员因经济问题或者个人恩怨而走上绝路
+我们如何决定在哪里投资，又是如何投资的呢
+【财新博客】财政悬崖与美式民主1月9日
+Apple is working on a less expensive iPhone, a big shift in strategy as its supremacy in smartphones has slipped.
+	Windows 8: Not for Old-at-Heart PCs
+            为中国钟表业“设计未来”
+          央视记者曝光人造鱼翅真相：烧碱明胶双氧水泡制
+			跟南方周末说说你的理想生活：一，你理想的生活是怎样的，这离你多远？二，你理想的国家是怎样的？三，你有安全感吗，有或没有，分别来自哪些方面？欢迎在评论区留言，分享你的思考，我们将选择部分回答在南方周末新年特刊上刊发。		
+				你有安全感吗？	
+															有
+																				没有
+																				不清楚
+				多少钱可以让你有安全感？	
+															100万元
+																				500万元
+																				1000万元或以上
+																				多少钱都不够，这不是钱能解决的问题
+				你的不安全感主要来自哪些方面？（多选）	
+															经济收入
+																				社会自由度
+																				情感
+																				法治保护
+																				其他
+				你的理想生活，其中最重要的要素是什么？（多选）	
+															财务自由
+																				好工作
+																				稳定的感情
+																				法治社会
+																				其他
+				你打算如何过上有安全感的生活？（最多选4项）	
+															赚钱移民
+																				更多参与社会公共事务
+																				靠拢体制内
+																				什么也不干
+																				其他
+Now I am empty, try fill me with fun..
+				20.97%的用户认为理想生活最重要的因素是好工作
+				82.34%的用户没有安全感
+				13.51%的用户很重视冬至
+				19.83%的用户最关注的2012年军事新闻是中国首艘航母辽宁舰入列
+				13.23%的用户最关注的2012年军事新闻是钓鱼岛争端
+				75.76%的用户不清楚领取失业保险金需要满足哪些条件
+				74%用户知道性接触传播是目前艾滋病传播的最主要途径。
+				81.94%的用户不知道如何申请职业培训等政府公共就业服务
+				36.44%用户撕掉或涂掉快递单上的收件人信息再扔
+				7.79%用户曾经失业过，且办理了失业登记。
+				19.98%用户认为入世带来的最大变化是出口带来无数就业机会
+				70.01%用户认为现在吃饱没问题，但吃上放心粮有困难
+				73.06%用户忙于生计，很少关心立法草案
+				64.6%用户几乎每天都会接触到二手烟
+				5.08%用户最希望改善的“城市病”是人太多导致的住房医疗教育等资源紧张
+				98.16%用户认为自己所在的城市没有特色
+				23.67%用户会让子女接受国学教育
+Now I am empty, try fill me with fun..
+Why do our fingers do prune impressions when soaked? It could be an adaptation that gives us better grip underwater.
+Starting today, wannabe programmers on Codecademy will get to do more than just fiddle around with code in a vacuum, they’ll be able to plug into the APIs of several popular websites and services to build apps around YouTube videos, NPR newscasts,...
+Struggling telecoms supplier Alcatel-Lucent has beefed up its Optism mobile advertising platform by integrating geolocation technology from fellow French firm Intersec.
+	            女股民亏钱后爱穿暴露装	
+	突然巨变的信号已经出现!
+             太阳照常升起。亲爱的读者，既然你看到了这篇文章，说明玛雅的末日预言已经落空。即. 详细
+          ·人不能被钱砸倒，更不能被钱压倒
+罗竖一·孔祥曦就万像电影节发声明：已退出...
+            刘兴亮·2012中国互联网哈哈榜之1：十大网...
+            于斌·那些年被小米毁掉的热词
+            崔东树·世界性电动车热潮是否退烧？
+2012我通信生涯的大事件 
+转：【超赞】一篇故事讲述了网关... 
+ 且慢为全国水质公开叫好01-09 21:44
+Now I am empty, try fill me with fun..
+  TRANSPORT MILESTONE         World's first under- ground rail hits 150  3:00       Tube trivia: 9 things you didn't know      The world's 10 best metro systems?    
+  All CES &raquo; CES       The hordes, hype and glowing screens of CES   150,000 tech enthusiasts have gathered for the five-day carnival called the Consumer Electronics Show.     Razer's hardcore-gaming tablet     Wider, thinner TVs  |  'Born mobile'          
+Weak Job Resume?
+China Ending Camps?
+					The 60th International Solid-State Circuits Conference (ISSCC) will be held on 17 - 21 Feb 2013 in San Francisco, CA, USA.
+					Students from the University of Oxford win the 2012 IEEE Presidents&rsquo; Change the World Competition. 
+						2013 IEEE 26th International Conference on Micro Electro Mechanical Systems (MEMS)                                                                                                                                                                                                                          
+        Immunity-boosting drinks to get you through flu season.
+								朝雲: @catweets 南韓和台灣的民主化代價，綜觀世界和歷史，可謂甚低，而且成功。
+								10个鼓舞人心的网站开发公司
+			全球最美新人王春晚礼服大猜想
+        #创意#这款太阳能CD播放器由两部分组成：貌似冬日取暖器的太阳能板，和形似古老坐式电扇的播放器。这块太阳能板经过大约5个小时的日晒就能给播放器充满电，支持它持续工作10个小时。CD唱片和内载有MP3文件的CD光盘都能被播放器识别，只需要将其放入播放器的“风扇”转盘上，启动机器就可以播放了。                                                                         16分钟前
+                                创意无限这款#创意#手套触碰垫子的诞生，让我们带着手套也能玩手机咯~~太给力了，有木有！？11分钟前
+        【如何提升你的阅读气质】小学初中都干过包书皮儿的活，看看高手如何做。#创意#                                                                         17分钟前Now I am empty, try fill me with fun..
+The Writer's Marathon: Seven Challenges to a Successful Series (Crafting Fabulous Fiction, by Victoria Grossack)
+Some Things Never Change..., by Moira Allen 
+How to Break Writer's Block, by Jacob Myers
+The Future of Science Fiction and Fantasy, by Michele Acker
+How to Evaluate a Good Blog Gig and Earn What You Deserve!, by Jennifer Brown Banks
+Do you have an "awesome blog"?  Do you know of one?  Let us know; send an e-mail to <a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;&#101;&#100;&#105;&#116;&#111;&#114;
+			占了又不坐的占座狂，山崩地裂之抖腿狂，尿频尿急尿不尽的肾虚男女狂，来电必响必振动必接听的三位一体偏执狂，皮卡皮卡扣人心弦的鼠标电脑狂，咔嚓咔...
+			你凭什么说自己很努力
+			科大小孩子
+			科大小孩子
+			我总体建议如下： 1.660不做，课本一定要做 2.英语作文11月开始 3.大数定理不做，泰勒公式不做 4.政治最早10月开始，最晚也10月份开始 5.专业课，你就...
+            11-07项目经理一定比码农好么？
+11-07燃烧青春和诗意的IT人生
+11-11我的阿里、金山、中华、腾讯、360、网易面试总
+11-10外企应聘最喜欢问的6个英文面试题
+11-12Google+微软笔试小结
+                你的交际力能否通吃？
+
+Now I am empty, try fill me with fun..
+		? [热点]新驾考破七千 媒体追问借机抬价还是安全升级
+		? [热点]台湾知名餐厅将剩菜卖给大陆游客 遭批太恶劣
+                     	从打工仔到“清华英语神厨” 托福考了
+                     	盘点托福写作困境与对策：重视提纲 表
+            3000底薪可接受 海归进入平凡时代
+                     	留美学子谈留学生活：趁年轻我愿意多
+Dawn Copeman's Inquiring Writer column, where readers help readers
+Aline Lechaye's Free Stuff for Writers, your guide to free writing tools on the web
+Victoria Grossack's Crafting Fabulous Fiction column
+Moira Allen's Writing Desk, answering your questions about writing
+Jobs and Opportunities: calls for submissions, new markets and jobs
+If you're wondering where to start as a freelance writer, here's the book to set you on the right path.  It begins at the beginning, and walks you through all the steps you'll need to take to start earning money as a freelancer.  Find out how to develop marketable articles, find markets, negotiate contracts, and handle both the creative and the business side of professional writing.  You'll also find tips on expanding into commercial writing, writing nonfiction books, teaching and speaking.  The new edition includes updated information for the "electronic" writer, including how to make the most of blogs and social networking, and how to promote yourself online.  See the Table of Contents or find out more at our Bookstore.  (Available in print and Kindle editions.)
+Writing to Win: The Colossal Guide to Writing Contests
+A Revolution We Can't Ignore (More on the E-Book Revolution) (editorial), by Moira Allen
+Seven Reasons Today's Writers Should Blog to Build Their Platforms and Their Bottom Lines! by Jennifer Brown Banks
+Whether to Be Rich, Enriched, or Enriching... (editorial), by Moira Allen
+Is Writing an Art or a Craft? by Moira Allen 
+Now I am empty, try fill me with fun..
+	美国多地流感疫情大爆发 数十人死亡
+                屌丝伞兵的逆袭：4人+盛大+远程+最佳手游
+               《程序员》精选：新浪首席DBA谈Redis开发与运维
+[揭开“宫爆老奶奶”成功的秘密] [巨头的得意与失落：2012移动游戏十大收购案]
+非常有用的开源技术网站
+csdn
+			北京一怪异建筑被戏称“大肠塔”
+	服装店店主为陌生病儿发起爱心义卖，没想到衣服近乎遭“哄抢”。
+		城市治理不是一场大扫除 “学考分离”可破驾校垄断
+第15期&nbsp读靖国神社
+   业内人士看泰囧：我们为什么不懂中国票房
+  [关注|六成无背景意味四成有背景？ 统计家庭出身背后危险信号]
+  六成新录公务员来自普通家庭暗含潜台词
+        你删除得了世界，删除不了尊
+             “我作为球员来说，以后还得在中国篮球混，没什么说的。”这是青岛队球员薛玉洋在赛后新闻发布...    
+Now I am empty, try fill me with fun..
+ 也说看电视剧《知青》的想法
+ 余秋雨写给学生们的一封信
+ 《论语》是读不尽的   
+                            ·发一组《雾凇》给大家拜个晚年 
+                            ·最有意思的十种中国人 
+                            ·深度了解防水那些事 
+                            ·微视频：为何由盛而衰？ 
+                            ·赶集网为啥问题多还有风投愿意跟
+                            ·百度云+端布局抢占制高点 
+                    Featured EventsJan09Writing a Winning Resume All current students welcome. 5:00 PM - 6:00 PMJan10Women's Basketball vs. IllinoisAt Welsh-Ryan Arena. 7:00 PM - 9:30 PMJan11Bienen School Faculty and GuestsPick-Staiger Concert Hall7:30 PM - 9:30 PMView Events CalendarCloseupJob FinderNew grad Rebecca TeKolste works to pair young area job seekers with Northwestern employment opportunities.Connect Founders' DayAs Northwestern turns 162, help us mark the occasion by sending photos of you at the Rock. More on the celebration.More Social Media
+Fewer babies and more Boomers make for a graying California
+		USC students will start construction this month on a model house as part of the Department of Energy's Solar Decathlon competition. Their goal: affordable and environmentally friendly housing for the future.
+You and your PC: Never ever getting back together?
+			

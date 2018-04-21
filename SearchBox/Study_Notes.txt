@@ -1,0 +1,41 @@
+for the construction of new WebOS search engine:
+
+1.
+Class MultiFieldQueryParser
+ java.lang.Object
+  org.apache.lucene.queryparser.classic.QueryParserBase
+      org.apache.lucene.queryparser.classic.QueryParser
+          org.apache.lucene.queryparser.classic.MultiFieldQueryParser
+ All Implemented Interfaces: QueryParserConstants, CommonQueryParserConfiguration 
+--------------------------------------------------------------------------------
+public class MultiFieldQueryParserextends QueryParser
+ A QueryParser which constructs queries to search multiple fields. 
+
+
+
+通过上述的方法，可以实现在多个域中进行搜索。具体代码：
+			Analyzer analyzer = new SmartChineseAnalyzer(Version.LUCENE_CURRENT);
+		Query query = MultiFieldQueryParser.parse(Version.LUCENE_CURRENT, "filecontent", keyword, null, analyzer);
+Directory directory = FSDirectory.open(path.listFiles()[j]);
+				ireader = DirectoryReader.open(directory);
+			    IndexSearcher isearcher = new IndexSearcher(ireader);			    
+			    ScoreDoc[] hits = isearcher.search(query, 999).scoreDocs;
+
+
+
+2.利用Query的组合产生多种需求的查找
+Query query1 = new TermQuery(new Term("filecontent","失败")); // 词语搜索
+		Query query3 = new TermQuery(new Term("filecontent","地震")); // 词语搜索
+		BooleanQuery query = new BooleanQuery();
+		query.add(query1,BooleanClause.Occur.MUST);
+		 
+		query.add(query3,BooleanClause.Occur.MUST);
+之后将query转交，与上面并无不同
+
+
+3.带通配符的搜索 
+query query2 = new wildcardquery(new term(fieldname, “name*”)); // 通配符 
+可以实现类似模糊查询的效果
+
+
+

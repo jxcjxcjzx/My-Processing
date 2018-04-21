@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/org.junit4_4.1.0.1/junit-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Source/speakright/srf/libs/StringTemplate/stringtemplate-3.0/lib/stringtemplate.jar"/>
+	<classpathentry kind="lib" path="C:/Source/speakright/srf/libs/StringTemplate/stringtemplate-3.0/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Source/speakright/srf/libs/XMLUnit/xmlunit/lib/xmlunit1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

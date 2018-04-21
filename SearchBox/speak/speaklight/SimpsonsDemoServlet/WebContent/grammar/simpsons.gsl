@@ -1,0 +1,7 @@
+CHOOSE [
+  [ homer ] { <x "1"> }
+  [ marge ] { <x "2"> }
+  [ bart ] { <x "3"> }
+  [ lisa ] { <x "4"> }
+]
+

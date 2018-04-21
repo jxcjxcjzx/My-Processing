@@ -1,0 +1,17 @@
+Developers of SpeakRight
+=======================
+
+Here we list all developers who have contributed to SpeakRight
+http://SpeakRight.sourceforge.net
+
+SpeakRight is looking for more developers (Java, C#, Python), and VUI designers to help build
+this project.
+
+project manager
+---------------
+Ian Rae (ianrae88@users.sourceforge.net)
+
+coding
+------
+Ian Rae(ianrae88@users.sourceforge.net)
+

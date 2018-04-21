@@ -1,0 +1,62 @@
+Version 0.1.4 (Nov 29, 2007)
+===========================
+-added content-logging, which outputs the generated vxml to a file.  useful during development
+-moved flow object classed to new package org.speakright.core.flows
+-voicexml tag <record> implemented
+-added GotoUrlFlow that jumps to any external VoiceXML application
+-added RawContentFlow for outputting app-defined voicexml
+-added TransferFlow to implement the VoiceXML <transfer> tag
+-added FlowList to represent a sequence of flow objects, optionally ending with an app event.
+-applications now catch a VoiceXML disconnect event, to allow app end-of-call code to run
+-servlets now work in IE
+-IFlow context now passed to most IFlow methods, such as onBegin, onEnd, getFirst, getNext
+-added IFlow.shouldExecute so flow objects can decide at activation-time whether to execute 
+-added IFlow.fixupGrammar
+-added SRConfig
+
+SROs:
+
+Version 0.0.3 (May 10, 2007)
+===========================
+-SimpsonsDemo - new demo app added
+-MGEN allows raw Java code to be inserted into a Model (<raw> tag added)
+-AutoTester added to itest.  Allows automated testing of entire app.
+-Prompt groups to simplify app-defined prompts, even to override SRO prompts
+-Prompt sub-prompts added. allows conditional logic to be attached to be defined in prompt XML files
+
+SROs:
+-commands (hot-words like "cancel" or "main menu") added to SROs
+-SROListNavitagor added.  Allows next/previous/first/last VUI traversal through a list of items.
+-SROOrdinalItem added
+-SROYesNo added. does basic yes/no question
+
+Version 0.0.2 (Mar 5, 2007)
+===========================
+-SROGen working. creates java and prompts xml file
+-SRONumber and SROConfirmYesNo created
+-voicemxl 
+  -now passes back utterance confidence in sr__conf
+  -now uses GET instead of POSt
+-refactored model binding into Grammar
+-introduced ptext for prompt text
+-introduced gtext for grammar text
+-added copyright notice to source files
+-audiomatch.xml now working
+
+Version 0.0.1 (Feb 26, 2007)
+============================
+
+- Support for basic VoiceXML applications.  
+  -audio file prompts, tts prompts, raw prompts, value prompts
+  -Single-slot questions only with a configurable maxAttempts
+  -validation
+  -completion side-effect (called "transaction" where business logic can go)
+  -error handlers for NoInput, PlatformError
+
+  -renderer for VoiceXML 2.0
+  -renderer for HTML (useful for testing a servlet from a browser)
+  
+  -ITest console tester
+  
+  -demo app
+  

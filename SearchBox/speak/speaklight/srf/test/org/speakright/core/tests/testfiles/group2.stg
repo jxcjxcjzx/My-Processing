@@ -1,0 +1,85 @@
+group group2;
+
+//--prompts--------------------------------------------------
+prompts(promptL) ::= <<
+$promptL:prompt(tagname="prompt"); separator="\n"$
+>>
+
+silprompts(promptL) ::= <<
+$promptL:prompt(tagname="noinput"); separator="\n"$
+>>
+
+norecoprompts(promptL) ::= <<
+$promptL:prompt(tagname="nomatch"); separator="\n"$
+>>
+
+
+//--the main prompt definition--
+prompt(tagname) ::= <<
+<$tagname$ $it.countNot1:xcc()$>$it.itemL:promptItem()$</$tagname$>
+>>
+
+//a way of outputting count attr only when count not 1
+xcc() ::= <<
+count="$it$"
+>>
+
+//can't get $if$ working so use each type and only one outputs something
+//MUST have a space at end of $it.tts$ line!!
+promptItem() ::= <<
+$it.tts:doTts()$$it.audio:doAudio()$$it.pause:doPause()$
+>>
+
+doTts() ::= "$it$ "
+
+doAudio() ::= <<
+<audio src="$it$"/>
+>>
+
+doPause() ::= <<
+<break time="$it$ms"/>
+>>
+
+//--prompts--------------------------------------------------
+block(promptL) ::= <<
+<block>
+$prompts(promptL)$
+</block>
+>>
+//----grammars-----------------------------------------
+grammar(url) ::= <<
+$if(url)$
+<grammar type="application/srgs+xml" src="$url$"/>
+$endif$
+>>
+
+//----field-----------------------------------------
+field(hasInput, grammarUrl,dtmfGrammarUrl,
+          promptL,silPromptL,norecoPromptL,nextUrl) ::= <<
+<field name="field1">
+$grammar(grammarUrl)$
+$grammar(dtmfGrammarUrl)$
+$silprompts(silPromptL)$
+$norecoprompts(norecoPromptL)$
+$prompts(promptL)$
+
+$if(hasInput)$
+<filled>
+<submit next="$nextUrl$" namelist="field1"/>
+</filled>
+</field>
+$endif$
+>>
+ 
+
+//---page------------------------------------------------
+pageheader() ::= <<
+<?xml version="1.0" encoding="UTF-8"?><vxml xmlns="http//www.w3c.org/2001/vxml" version="2.0">
+<form>
+>>
+
+pagefooter() ::= <<
+</form>
+</vxml>
+>>
+

@@ -1,0 +1,59 @@
+SpeakRight Framework
+====================
+
+Requirements
+------------
+SpeakRight was created on Eclipse 3.2.1 which uses Java 1 (jre/jdk) 1.5.0.11 and Tomcat 5.5.
+
+Windows Installation
+--------------------
+1. Take the zip file you downloaded (SpeakRight-src-v-x-x-x.zip) and extract it into a directory. I'll use
+c:\source\speakright here, but you can use any directory.
+
+2. Open ecplise and File / Switch WorkSpace to "c:\source\speakright".  This will create the workspace.
+
+3. Import the project.  Do File / Import / Existing Project Into Workspace and choose c:\source\speakright\srf
+
+4. Switch to J2EE perspective and view the Servers tab (bottom of screen).  Right-click and do New / Server.
+ Select Apache Tomcat v5.5 and browse to its path, such as C:\eclipse\plugins\apache-tomcat-5.5.20
+
+5. Try to run a unit test.  In project explorer, open srf and right-click on test. Select Run As / JUnit Test.
+It will complain about no log4j properties.  So copy log4j.properties from c:\source\speakright into the bin
+subdirectory of srf.
+
+6. Now the unit tests should run.
+
+
+Linux Installation
+--------------------
+I'm afraid you're on your own with this.  Please let me know what steps are needed to install SpeakRight
+on Linux.
+
+
+Run the Demos
+-------------
+Open org.speakright.demo.simpsons.InteractiveTester and run it as a Java Application.  It uses the ITest utility that runs the SimpsonsDemo app from the console.  Audio output is simply printed as text to the console, and speech recognition is 
+simulated keyboard input.
+
+Run the Unit Tests
+------------------
+SpeakRight uses Junit 4.1 and XMLUnit 1.0.  Run the tests in org.speakright.core.tests
+
+Build a Servlet
+---------------
+A sample servlet is provided at demos/SampleServlet/src/org/speakright/demos/sampleservlet  
+
+1. Make a WAR file for it (in Eclipse do Export / and choose WAR file).
+2. Upload your servlet WAR file to a web server that hosts servlets.  Eclipse has a version of Tomcat, or you can install a stand-alone 
+   tomcat.
+3. First test you app using HTML.  Point your web browser at the url, adding "?mode=html" to get SpeakRight to serve up HTML. 
+   For example, http://localhost:8081/SampleServlet/App1?mode=html
+   You should see the first page of speech content rendered as HTML.  You can press the Submit button to go to the next page.
+   
+4. Test the app from a voicexml browser.  Point it to your servlet.  For example http://localhost:8081/SampleServlet/App1
+
+You can test for free from the Voxeo site (http://www.voxeo.com/developers/), using
+either a phone or Skype.
+
+ 
+

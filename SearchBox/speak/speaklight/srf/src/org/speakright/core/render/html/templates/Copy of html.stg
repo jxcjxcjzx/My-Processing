@@ -1,0 +1,108 @@
+group html;
+
+//--prompts--------------------------------------------------
+prompts(promptL) ::= <<
+$promptL:prompt(tagname="prompt"); separator="\n"$
+>>
+
+silprompts(promptL) ::= <<
+$promptL:prompt(tagname="noinput"); separator="\n"$
+>>
+
+norecoprompts(promptL) ::= <<
+$promptL:prompt(tagname="nomatch"); separator="\n"$
+>>
+
+
+//--the main prompt definition--
+prompt(tagname) ::= <<
+<h4>Prompt: $tagname$</h4>
+<b>count: </b> $it.countNot1:xcc()$ <p>
+$if(!it.BargeIn)$<b>bargeIn: </b> $it.BargeIn:doBargeIn()$<p>$endif$
+<b>Items:</b><br>
+<UL>
+$it.itemL:promptItem()$
+</UL>
+>>
+
+//a way of outputting count attr only when count not 1
+xcc() ::= <<
+ count="$it$" 
+>>
+
+doBargeIn() ::= <<
+ bargein="$it$" 
+>>
+
+//can't get $if$ working so use each type and only one outputs something
+//MUST have a space at end of $it.tts$ line!!
+promptItem() ::= <<
+<li>$it.tts:doTts()$$it.audio:doAudio()$$it.pause:doPause()$$it.raw:doRaw()$
+>>
+
+doTts() ::= <b>TTS: </b>"$it$"
+
+doRaw() ::= <b>raw: </b>"$it$ "
+
+doAudio() ::= <<
+<b>audio:  </b> $it$
+>>
+
+doPause() ::= <<
+<b>break </b> $it$ms
+>>
+
+//--prompts--------------------------------------------------
+block(promptL) ::= <<
+$prompts(promptL)$
+<p>
+>>
+//----grammars-----------------------------------------
+//later support text/gsl
+grammar(url) ::= <<
+$if(url)$
+<b>Grammar-url: </b> $url$<p>
+$endif$
+>>
+
+//----field-----------------------------------------
+field(hasInput, grammarUrl,dtmfGrammarUrl,
+          promptL,silPromptL,norecoPromptL,nextUrl) ::= <<
+$grammar(grammarUrl)$
+$grammar(dtmfGrammarUrl)$
+$silprompts(silPromptL)$
+$norecoprompts(norecoPromptL)$
+$prompts(promptL)$
+
+$if(hasInput)$
+<b>Next-url: </b> $nextUrl$<p>
+$endif$
+>>
+ 
+//--submit --------------------------------------------------
+submitBlock(url) ::= <<
+<b>Next-url: </b> $url$
+>>
+
+//---page------------------------------------------------
+pageheader() ::= <<
+<html><p>
+<head><p>
+<title>SRF App</title><p>
+</head><p>
+<body><p>
+>>
+
+//output a form so user can simulate the response from a speech platform
+pagefooter() ::= <<
+<hr>
+<form action=" " method="POST">
+Result: <input type="text" name="result" size="20"><br>
+<br><br>
+<input type="submit" value="Submit">
+</form>		
+		
+</body><p>
+</html><p>
+>>
+

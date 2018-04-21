@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- later we'll support name and base in model tag -->
+<model>
+ <value name="city" type="String" />
+ <value name="x" type="int" />
+ <value name="loggedIn" type="boolean" />
+ <value name="hack" type="String" />
+</model>

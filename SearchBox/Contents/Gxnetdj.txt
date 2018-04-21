@@ -1,0 +1,189 @@
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.*;
+
+public class Gxnetdj {
+
+	/**
+	 * @param args
+	 */
+	String staradd = null;
+	String []namelist = new String[10000];
+	int count = 0;
+	
+public String getstartadd(String name)
+{
+   Pattern namematch = Pattern.compile("http...baike.baidu.com.view.([0-9]+?).htm|http.....baike.baidu.com..view..25364.htm");
+   try{
+ 
+   URL url = null;
+   url = new URL("http://www.baidu.com/s?wd="+name);                              
+   InputStreamReader isr = new InputStreamReader(url.openStream());
+
+   BufferedReader br = new BufferedReader(isr); 
+   String str = null;
+   while ((str = br.readLine() )!= null) {   
+
+   Matcher m = namematch.matcher(str);
+   
+   
+   if (m.find()) {
+		
+	   this.staradd = "http://baike.baidu.com/view/"+m.group(1)+".htm";
+       break;	
+	   
+                 }
+   else
+   {
+	   continue;
+   }
+
+                                        	}
+	br.close();	
+   }
+   catch (IOException e) 
+   {            
+     e.printStackTrace();    
+   }    
+	
+   return this.staradd;
+}
+	
+
+
+public void addanalysis(String foranalysis)
+{
+
+    int num = this.count;
+    String strUrl = foranalysis;         
+	   try { 
+		   
+		   boolean kaishi = false;  
+		   boolean jieshu = false;   
+		   String string = null;
+		   String zuo = "<div class=.word_more_con. id=.word_more_con. style=.display:none.>";
+		   String you = "<div class=.end.>";
+		   Pattern bracket1 = Pattern.compile(zuo);   
+		   Pattern bracket2 = Pattern.compile(you);   
+		   Pattern p = Pattern.compile("<.+?>");
+	       URL url = new URL(strUrl);                              
+	       InputStreamReader isr = new InputStreamReader(url.openStream(),"gbk");
+
+	       BufferedReader br = new BufferedReader(isr); 
+	       String str = null;
+	       while ((str = br.readLine() )!= null) {   
+            	Matcher m2 = bracket1.matcher(str);
+				if(m2.find())
+				{
+					kaishi = true;
+					
+					
+					
+				}
+				if(kaishi)
+				{
+				        Matcher m1 = p.matcher(str);
+						if(m1.find())
+						{
+							
+							string = m1.replaceAll("");
+						}
+						 if(string.isEmpty())
+						 {
+							 
+						 }
+						 else
+						 {
+							 if(!this.checkifinlist(string))
+							 {
+								 System.out.println(string);
+								 this.namelist[num] = string;
+								 this.count++;
+								 num++;
+							 }
+							 else
+							 {
+								 continue;
+							 }
+						 }
+				 
+				}
+				Matcher m3 = bracket2.matcher(str);
+				if(m3.find())
+				{
+					jieshu = true;
+				}
+				if(jieshu)
+				{
+					break;
+				}
+	     }
+				br.close();
+     }
+				 catch (IOException e) 
+   {            
+     e.printStackTrace();    
+   }    
+ }
+	
+
+
+public boolean checkifinlist(String chance)
+{
+    boolean ifin = false;
+    int length = 0;
+    for(length=0;length<this.count;length++)
+    {
+    
+    	if(chance.equals(this.namelist[length]))
+    	{
+    		
+    		ifin = true;
+       		break;
+    	}
+    	else
+    	{
+    		ifin = false;
+    	}
+    }
+
+   return ifin;
+}
+ 
+
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+        int i = 0;
+        int j = 0;
+		int digdepth = 2;    //here is the depth you would like to dig into the person
+		int currentlength = 0;
+		int pastlength = 0;
+		Gxnetdj chaxun = new Gxnetdj();
+		chaxun.addanalysis(chaxun.getstartadd("Ð»ÐÓ·¼"));
+			
+		currentlength = chaxun.count;
+		
+		for(i=0;i<digdepth;i++)
+		{
+            System.out.println("hello!");
+			
+			for(j=pastlength;j<currentlength;j++)
+			{
+				chaxun.addanalysis(chaxun.getstartadd(chaxun.namelist[j]));
+			}
+			pastlength = currentlength;
+			
+			currentlength = chaxun.count;
+		    
+		}
+		
+	}
+
+
+		
+}
+
