@@ -18,7 +18,7 @@ ArrayList<String> list = new ArrayList<String>();
 ArrayList<String> bookcontent = new ArrayList<String>();
 String TheOpenFileWay = "utf-8";
 int pianyi = 0;
-String processtxtpath = "f:/ceshi/test/process.txt";
+String processtxtpath = "F:/ceshi/test/process.txt";
 String configpath = "E:/HappyOne/research_center/ReadBox/config";
 String dangerpath = "E:/HappyOne/research_center/ReadBox/dangerconfig";
 String fileaddr = "";
@@ -31,6 +31,11 @@ ArrayList<String> dangerlist = new ArrayList<String>();
 boolean waitforconfig = false;
 int currentconfigindex = 0;
 
+
+// one pic variable for special use
+PImage newyear;
+
+
 void setup()
 {
   size(900,500);
@@ -41,6 +46,10 @@ void setup()
   timer.schedule(new MyTask(),9,60*1000);
   smooth();
   noStroke();
+  
+   // special use in special days
+    newyear = loadImage("2013.jpg");
+    
 }
 
 void DangerInit()
@@ -97,6 +106,9 @@ void draw()
       }
     }        
   }  
+  
+   // special show of images
+   //image(newyear,width/2-newyear.width/2,0);
   
 }
 
